@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta content="nofollow" name="robots">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="imagetoolbar" content="no">
+        <meta description="AttackedというiFrameを使用している中で最も攻撃効率が良いものです。メモリ消費も多いですが。">
+        <meta keywords="田代砲,ddos攻撃,dos攻撃,ddos,dos,田代,田代まさし">
+        <meta name=”viewport” content="width=device-width,initial-scale=1">
+        <script type='text/javascript' src='//pl20646326.highcpmrevenuegate.com/1e/f5/d6/1ef5d6f99fe509317dc0bf1e3aa85002.js'></script>
+        <script type='text/javascript' src='//pl20646326.highcpmrevenuegate.com/1e/f5/d6/1ef5d6f99fe509317dc0bf1e3aa85002.js'></script>
+        <title>Attacked Ver1.13</title>
+        <style>
+        H2 {
+            TEXT-ALIGN: center
+        }
+        H3 {
+            TEXT-ALIGN: center
+        }
+        TABLE {
+            FONT-SIZE: 10pt
+        }
+        TH {
+            BORDER-TOP-STYLE: outset;
+            BORDER-RIGHT-STYLE: outset;
+            BORDER-LEFT-STYLE: outset;
+            BACKGROUND-COLOR: #c6c6c6;
+            BORDER-BOTTOM-STYLE: outset
+        }
+        TD {
+            BORDER-TOP-STYLE: outset;
+            BORDER-RIGHT-STYLE: outset;
+            BORDER-LEFT-STYLE: outset;
+            BORDER-BOTTOM-STYLE: outset
+        }
+        </style>
+    </head>
+    <body>
+        <h2>Attacked Ver1.13</h2>
+        <table border="1" bgcolor="#eeffff" align="center">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <form name="Interface">目標アドレス<br>
+                            <input title="対象のURLを入力してください。" size="90" name="url" type="text"> 
+                            <input type="button" value="目標アドレスを記憶" title="飾りボタン"><br>※履歴が出なくなったら、F5で更新してみてください。 
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <form name="Nakano"><!--Nakano、それは廃人である。-->
+                    <td>
+                        砲門数: <input onblur="chackWindow()" title="小窓の数を指定してください。" size="2" value="16" name="miniWindow"> (4から20の間で設定) 
+                    </td>
+                    <td>
+                        自動更新間隔(1000=1秒): <input onblur="chackInterval()" title="更新間隔を入力してください。" size="10" value="200" name="Interval">
+                    </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form name="Yuko"><!--Yuko、それは(以下略)-->
+                    <td align="center">アクセス回数: 
+                        <input title="更新回数がここに表示されます。" readonly="" size="5" name="CountNum">
+                    </td>
+                    <td align="center">
+                        <input onclick="main(0);" type="button" value="自動更新開始">
+                        <input onclick="main(1);" type="button" value="自動更新停止">
+                        <input onclick="main(2);" type="button" value="入力データ消去">
+                    </td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+        <div id="here" align="center"></div><!-- ここからは、説明とコメントです。 -->
+            <table border="1" align="center">
+                <tbody>
+                    <tr>
+                        <th bgcolor="#c6c6c6">目的 </th>
+                        <td>このツールは、Webサーバーの表示更新負荷テスト用に作成されています<br>複数のウインドウにて、高速で更新処理を行う事により、同時アクセス制御や<br>サーバーの環境・ログなどの処理能力が確認できます。 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>使い方 </th>
+                        <td>1.TargetAddressに対象のアドレスを入力してしてください。<br>
+                            アドレスを記憶する時には「Memory」ボタンもしくはこのコントロール内で<br>
+                            Enterを押してください。<br><br>2.小窓の数を設定してください。<br><br>
+                            3.Intervalに更新間隔の値を設定してください。<br>　この数値により、更新頻度を変更する事ができます。<br><br>
+                            4.Startボタンを押下した時点から更新をはじめます。<br><br>5.ステータスバーに更新するたびにカウント表示がされます<br><br>
+                            6.Stopボタン押下で更新が止まり入力データがクリアされます。<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>miniWindowについて </th>
+                        <td>小窓の数を指定する事ができます。<br>増やしすぎると処理が重くなりますが、数こなす事ができます。<br>
+                            数が少ないとスペックの低いマシンでも重くないですが、数こなす事ができないです。<br>
+                            スペックや見た目の好みで変更していってください。<br>なお、Startするとこの値は変更する事ができません。<br>
+                            (変更しても利きません。)<br>変更を更新するには、もう一度Start押してください 
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Intervalについて </th>
+                        <td>最初200(0.2秒)設定くらいから初めて、徐々に調整していってください。<br>一つの窓が更新される秒数で設定してください。<br><br>
+                            確認方法は、Startした状態で、すべてのフレームのスクロールバーを下げます。<br>
+                            その状態で、しばらくたってものスクロールバーが上がってなかったら<br>
+                            更新し切れてないので、Intervalを少し長く設定してください。<br><br>できるだけ、短い時間に設定するほど更新頻度は高くなりますが、
+                            <br>全部更新されないと総更新数が減ります<br>ただし、サーバー側の負荷が高くなると秒数が徐々に大きくなっていくかと思うので、<br>
+                            設定し直してください。<br>なお、Startするとこの値は変更する事ができません。<br>(変更しても利きません。)<br>
+                            変更を更新するには、もう一度Start押してください
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>更新履歴 </h3>
+            <table border="1" align="center">
+                <tbody>
+                    <tr>
+                        <th>Ver 1.13 </th>
+                        <td>・IE以外でもブラウザでは実行出来ないのを修正<br>・submitやpostとかよく分からんやつは削除<br>
+                            ・要らないコメント追加<br>・JavaScriptのスペルミスを修正
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.12 </th>
+                        <td>・割り込み処理を変更する事により、処理の高速化<br>・Interval/miniWindow項目の変更をStartを押さないと反映しないように変更<br>
+                            ・Stop処理の改良で、値を削除しないように変更<br>・Clearボタン追加(前のStop処理)<br>・文字列チェック追加<br>
+                            ・更新回数表示をステータスバーからTEXTボックスに移動<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.11 </th>
+                        <td>・4窓から20窓までの間で好きに選択できるように変更<br>・スタイルシートを入れて、見た目を修正<br>・説明を修正</td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.10 </th>
+                        <td>・デフォルトを100(0.1秒)に変更<br>・4窓にもどしました<br>・更新アルゴリズム変更<br></td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.03 </th>
+                        <td>・デフォルトを5000(5秒)に変更<br>・20窓に対応(暫定対応の為攻撃力次第で減らすかも)<br>・コメント修正<br></td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.02 </th>
+                        <td>・TargetAddressに履歴が残るように修正(オートコンプリート)<br>　　まだ、うまく動いてない所があるので出なかったら更新してください<br>
+                            ・最小時間の安全装置が、デフォルト設定よりも大きかった不具合<br>・コメント修正<br>・注意事項追加<br>・更新履歴追加<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.01 </th>
+                        <td>・更新回数をステータスバーに移動<br>・Start時に背景色変更<br>・テキストボックスにカーソル合わせたらヘルプ表示<br>
+                            ・バージョンの横に最終更新日付表示<br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Ver 1.00 </th>
+                        <td>・田代砲を参考にHTML最適化<br>・メガ粒子田代砲を参考にスクリプトを簡素化<br></td>
+                    </tr>
+                </tbody>
+            </table><!-- ここまでは、説明とコメントです。 -->
+        <script src="script.js" type="text/javascript"></script>
+    </body>
+</html>
