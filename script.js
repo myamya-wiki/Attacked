@@ -21,9 +21,9 @@
 				{
 					Nakano.miniWindow.value = 4;
 				}
-				else if(eval(Nakano.miniWindow.value) > 20) //最大数20
+				else if(eval(Nakano.miniWindow.value) > 100) //最大数20
 				{
-					Nakano.miniWindow.value = 20;
+					Nakano.miniWindow.value = 100;
 				}
 			}
 /*
